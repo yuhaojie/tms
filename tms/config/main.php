@@ -7,40 +7,32 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-backend',
+    'id' => 'tms',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'backend\controllers',
+    'controllerNamespace' => 'tms\controllers',
     'defaultRoute' => 'main', // 默认控制器
     'bootstrap' => ['log'],
     'modules' => [
-        /** ------ 系统模块 ------ **/
-        'sys' => [
-            'class' => 'backend\modules\sys\Module',
-        ],
-        /** ------ 微信模块 ------ **/
-        'wechat' => [
-            'class' => 'backend\modules\wechat\Module',
-        ],
         /** ------ 会员模块 ------ **/
         'member' => [
-            'class' => 'backend\modules\member\Module',
+            'class' => 'tms\modules\member\Module',
         ],
     ],
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-backend',
+            'csrfParam' => '_csrf-tms',
         ],
         'user' => [
             'identityClass' => 'common\models\sys\Manager',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-tms', 'httpOnly' => true],
             'loginUrl' => ['site/login'],
-            'idParam' => '__backend',
-            'as afterLogin' => 'backend\behaviors\AfterLogin',
+            'idParam' => '__tms',
+            'as afterLogin' => 'tms\behaviors\AfterLogin',
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            'name' => 'advanced-tms',
             'timeout' => 7200
         ],
         'log' => [
@@ -101,16 +93,6 @@ return [
         // 文件上传公共控制器
         'file' => [
             'class' => 'common\controllers\FileBaseController',
-        ],
-        'ueditor' => [
-            'class' => 'common\widgets\ueditor\UeditorController',
-        ],
-        'provinces' => [
-            'class' => 'backend\widgets\provinces\ProvincesController',
-        ],
-        // 微信资源选择
-        'selector' => [
-            'class' => 'backend\widgets\selector\SelectorController',
         ],
     ],
     'params' => $params,

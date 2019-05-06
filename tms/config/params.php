@@ -5,13 +5,13 @@ return [
     'adminTitle' => 'RageFrame',
 
     /** ------ 总管理员配置 ------ **/
-    'adminAccount' => 1,// 系统管理员账号id
+    //'adminAccount' => 1,// 系统管理员账号id
 
     /** ------ 日志记录 ------ **/
     'user.log' => true,
     'user.log.level' => ['error'], // 级别 ['info', 'warning', 'error']
     'user.log.noPostData' => [ // 安全考虑,不接收Post存储到日志的路由
-        'app-backend/site/login',
+        'app-tms/site/login',
         'sys/manager/up-password',
         'sys/manager/ajax-edit',
         'member/member/ajax-edit',
@@ -39,12 +39,6 @@ return [
     'noAuthRoute' => [
         '/main/index',// 系统主页
         '/main/system',// 系统首页
-        '/ueditor/index',// 百度编辑器配置及上传
-        '/menu-provinces/index',// 微信个性化菜单省市区
-        '/wechat/common/select-news',// 微信自动回复获取图文
-        '/wechat/common/select-attachment',// 微信自动回复获取图片/视频/
-        '/wechat/analysis/image',// 微信显示素材图片
-        '/wechat/qrcode/qr',// 二维码管理的二维码
     ],
 
     'isMobile' => false,
@@ -61,7 +55,6 @@ return [
         'dropDownList' => "下拉文本框",
         'radioList' => "单选按钮",
         'checkboxList' => "复选框",
-        'baiduUEditor' => "百度编辑器",
         'image' => "图片上传",
         'images' => "多图上传",
         'file' => "文件上传",
@@ -90,48 +83,6 @@ return [
             'title' => '营销及活动',
             'icon' => 'fa fa-tachometer',
         ],
-        'services' => [
-            'name' => 'services',
-            'title' => '常用服务及工具',
-            'icon' => 'fa fa-magnet',
-        ],
-        'biz' => [
-            'name' => 'biz',
-            'title' => '行业解决方案',
-            'icon' => 'fa fa-diamond',
-        ],
-        'h5game' => [
-            'name' => 'h5game',
-            'title' => 'H5游戏',
-            'icon' => 'fa fa-gamepad',
-        ],
-    ],
-
-    /** ------ 微信配置-------------------**/
-
-    // 素材类型
-    'wechatMediaType' => [
-        'news'  => '微信图文',
-        'image' => '图片',
-        'voice' => '语音',
-        'video' => '视频',
-    ],
-
-    // 微信级别
-    'wechatLevel' => [
-        '1' => '普通订阅号',
-        '2' => '普通服务号',
-        '3' => '认证订阅号',
-        '4' => '认证服务号/认证媒体/政府订阅号',
-    ],
-
-    /** ------ 微信个性化菜单 ------ **/
-
-    // 性别
-    'individuationMenuSex' => [
-        '' => '不限',
-        1 => '男',
-        2 => '女',
     ],
 
     // 客户端版本
